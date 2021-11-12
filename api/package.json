@@ -1,0 +1,8 @@
+{
+  "name": "cc_api",
+  "version": "1.0.0",
+  "description": "API for the Central de Custos Web Aplication",
+  "main": "src/server.js",
+  "author": "Rodrigo Zandonadi",
+  "license": "MIT"
+}
