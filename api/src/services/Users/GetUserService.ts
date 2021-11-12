@@ -1,6 +1,6 @@
-import prismaClient from "../prisma";
+import prismaClient from "../../prisma";
 
-class UserService {
+class GetUserService {
   async execute() {
     try {
       const users = await prismaClient.user.findMany()
@@ -11,4 +11,4 @@ class UserService {
   }
 }
 
-export { UserService }
+export { GetUserService }
