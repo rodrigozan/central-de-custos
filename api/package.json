@@ -5,6 +5,9 @@
   "main": "src/server.js",
   "author": "Rodrigo Zandonadi",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --exit-child src/server.ts"
+  },
   "dependencies": {
     "@prisma/client": "^3.4.2",
     "cors": "^2.8.5",
