@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
     "target": "es2017",
+    "sourceMap": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "skipLibCheck": true,
+    "lib": [
+      "esnext"
+    ],
     "typeRoots": [
       "./src/@types",
       "node_modules/@types"
