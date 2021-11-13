@@ -1,12 +1,12 @@
 import prismaClient from "../../prisma";
 
-class CreateUserService {
-  async execute(nm_user: string, office_id: number, department_id: number) {
+class CreateDepartmentService {
+  async execute(nm_user: string, of_user: string, department_id: number) {
     try {
       const user = await prismaClient.user.create({
         data: {
           nm_user,
-          office_id,
+          of_user,
           department_id
         }
       })
@@ -17,4 +17,4 @@ class CreateUserService {
   }
 }
 
-export { CreateUserService }
+export { CreateDepartmentService }

@@ -13,23 +13,35 @@ datasource db {
 model User {
   id_user       Int            @id @default(autoincrement())
   nm_user String @db.VarChar(256)
-  of_user String @db.VarChar(256)
+
+  of_user       Office   @relation(fields: [office_id], references: [id_office])
+  office_id Int
 
   dp_user       Department   @relation(fields: [department_id], references: [id_department])
   department_id Int
-
-  CostsCentral CostsCentral[]
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @db.Timestamptz(6)
 }
 
+model Office {
+  id_office Int            @id @default(autoincrement())
+  nm_office String @db.VarChar(256)
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @db.Timestamptz(6)
+
+  User User[]
+}
+
 model Department {
   id_department Int            @id @default(autoincrement())
   nm_department String @db.VarChar(256)
+
+  cc_department       CostsCentral   @relation(fields: [costs_central_id], references: [id_costs_central])
+  costs_central_id Int
   
   User User[]
-  CostsCentral CostsCentral[]
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @db.Timestamptz(6)
@@ -38,13 +50,8 @@ model Department {
 model CostsCentral {
   id_costs_central Int            @id @default(autoincrement())
   nm_costs_central String @db.VarChar(256)
-  de_costs_central String @db.VarChar(256)
-  pr_costs_central Int
 
-  us_costs_central      User       @relation(fields: [user_id], references: [id_user])
-  user_id          Int
-  dp_costs_central Department @relation(fields: [department_id], references: [id_department])
-  department_id    Int
+  Department Department[]
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @db.Timestamptz(6)

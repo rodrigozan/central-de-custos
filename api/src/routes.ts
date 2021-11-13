@@ -1,12 +1,13 @@
 import { Router } from 'express';
 
-import { ListUsersController } from './controllers/Users/ListUsersController'
+import { ListUsersController, ListUsersByDptController } from './controllers/Users/ListUsersController'
 import { CreateUserController } from './controllers/Users/CreateUserController'
 
 const router = Router()
 
 // Endpoints to users
 router.get('/users', new ListUsersController().handle)
+router.get('/users/department/:id', new ListUsersByDptController().handle)
 router.post('/users', new CreateUserController().handle)
 
 // Endpoints to offices
