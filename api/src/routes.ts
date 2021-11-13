@@ -5,6 +5,8 @@ import { CreateUserController } from './controllers/Users/CreateUserController'
 import { UpdateUserController } from './controllers/Users/UpdateUserController'
 import { DeleteUserController } from './controllers/Users/DeleteUserController'
 
+import { ListDepartmentsController, ListDepartmentsByDptController } from './controllers/Departments/ListDepartmentsController'
+
 const router = Router()
 
 /* Endpoints to users */
@@ -22,11 +24,18 @@ router.delete('/users/:id', new DeleteUserController().handle)
 
 /* */
 
-/* Endpoints to offices */
-router.get('/offices', (req, res, next) => res.send("Entrou na rota de cargos"))
+/* Endpoints to departments */
 
-// Endpoints to departments
-router.get('/departments', (req, res, next) => res.send("Entrou na rota de departamentos"))
+// List all departments
+router.get('/departments', new ListDepartmentsController().handle)
+// List all departments by Costs Central
+router.get('/departments/costs-central/:id', new ListDepartmentsByDptController().handle)
+// Create department
+router.post('/departments', new ListDepartmentsController().handle)
+// Update department
+router.put('/departments/:id', new ListDepartmentsController().handle)
+// Delete department
+router.delete('/departments/:id', new ListDepartmentsController().handle)
 
 // Endpoints to costs-central
 router.get('/costs', (req, res, next) => res.send("Entrou na rota de custos"))

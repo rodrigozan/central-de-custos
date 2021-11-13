@@ -1,9 +1,9 @@
 import prismaClient from "../../prisma";
 
-class ListDepartmentService {
+class ListDepartmentsService {
   async execute() {
     try {
-      const departments = await prismaClient.department.findFirst()
+      const departments = await prismaClient.department.findMany()
       return departments
     } catch (error) {
       console.log(error)
@@ -12,10 +12,12 @@ class ListDepartmentService {
 }
 
 class ListDepartmentByCc {
-  async execute(dpto_id: number) {
+  async execute(cc_id: number) {
     try {
       const users = await prismaClient.department.findMany({
-        where: {}
+        where: {
+          costs_central_id: cc_id
+        }
       })
       return users
     } catch (error) {
@@ -24,4 +26,4 @@ class ListDepartmentByCc {
   }
 }
 
-export { ListDepartmentService, ListDepartmentByCc }
+export { ListDepartmentsService, ListDepartmentByCc }

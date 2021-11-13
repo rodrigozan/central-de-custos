@@ -1,11 +1,11 @@
 import { Request, Response } from 'express'
 
-import { ListUsersService, ListUsersByDptoService } from '../../services/Users/ListUsersService'
+import { ListDepartmentsService, ListDepartmentByCc } from '../../services/Departments/ListDepartmentsService'
 
-class ListUsersController {
+class ListDepartmentsController {
   async handle(req: Request, res: Response) {
 
-    const service = new ListUsersService()
+    const service = new ListDepartmentsService()
 
     try {
       const result = await service.execute()
@@ -16,11 +16,11 @@ class ListUsersController {
   }
 }
 
-class ListUsersByDptController {
+class ListDepartmentsByDptController {
   async handle(req: Request, res: Response) {
     const { id } = req.params
 
-    const service = new ListUsersByDptoService()
+    const service = new ListDepartmentByCc()
 
     try {
       const result = await service.execute(Number(id))
@@ -31,4 +31,4 @@ class ListUsersByDptController {
   }
 }
 
-export { ListUsersController, ListUsersByDptController }
+export { ListDepartmentsController, ListDepartmentsByDptController }
