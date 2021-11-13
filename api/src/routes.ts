@@ -6,6 +6,11 @@ import { UpdateUserController } from './controllers/Users/UpdateUserController'
 import { DeleteUserController } from './controllers/Users/DeleteUserController'
 
 import { ListDepartmentsController, ListDepartmentsByDptController } from './controllers/Departments/ListDepartmentsController'
+import { CreateDepartmentController } from './controllers/Departments/CreateDepartmentController'
+import { UpdateDepartmentController } from './controllers/Departments/UpdateDepartmentController'
+import { DeleteDepartmentController } from './controllers/Departments/DeleteDepartmentController'
+
+import { CreateOfficesController } from './controllers/Offices/CreateOfficesController'
 
 const router = Router()
 
@@ -24,6 +29,13 @@ router.delete('/users/:id', new DeleteUserController().handle)
 
 /* */
 
+/* Endpoints to offices */
+
+// Create cost
+router.post('/offices', new CreateOfficesController().handle)
+
+/* */
+
 /* Endpoints to departments */
 
 // List all departments
@@ -31,13 +43,23 @@ router.get('/departments', new ListDepartmentsController().handle)
 // List all departments by Costs Central
 router.get('/departments/costs-central/:id', new ListDepartmentsByDptController().handle)
 // Create department
-router.post('/departments', new ListDepartmentsController().handle)
+router.post('/departments', new CreateDepartmentController().handle)
 // Update department
-router.put('/departments/:id', new ListDepartmentsController().handle)
+router.put('/departments/:id', new UpdateDepartmentController().handle)
 // Delete department
-router.delete('/departments/:id', new ListDepartmentsController().handle)
+router.delete('/departments/:id', new DeleteDepartmentController().handle)
 
-// Endpoints to costs-central
-router.get('/costs', (req, res, next) => res.send("Entrou na rota de custos"))
+/* */
+
+/* Endpoints to costs-central */
+
+// Create cost
+router.post('/costs-central', new CreateDepartmentController().handle)
+// Update cost
+router.put('/costs-central/:id', new UpdateDepartmentController().handle)
+// Delete cost
+router.delete('/costs-central/:id', new DeleteDepartmentController().handle)
+
+/* */
 
 export { router }

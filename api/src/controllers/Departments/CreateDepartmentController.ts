@@ -1,14 +1,14 @@
 import { Request, Response } from 'express'
-import { CreateUserService } from '../../services/Users/CreateUserService'
+import { CreateDepartmentService } from '../../services/Departments/CreateDepartmentService'
 
-class CreateUserController {
+class CreateDepartmentController {
   async handle(req: Request, res: Response) {
-    const { nm_user, of_user, dp_user } = req.body
+    const { nm_department, costs_central_id } = req.body
 
-    const service = new CreateUserService
+    const service = new CreateDepartmentService
 
     try {
-      const result = await service.execute(nm_user, of_user, dp_user)
+      const result = await service.execute(nm_department, costs_central_id)
       return res.json(result)
     } catch (error) {
       return res.json({ error: error.message })
@@ -16,4 +16,4 @@ class CreateUserController {
   }
 }
 
-export { CreateUserController }
+export { CreateDepartmentController }

@@ -1,16 +1,15 @@
 import prismaClient from "../../prisma";
 
 class CreateDepartmentService {
-  async execute(nm_user: string, of_user: string, department_id: number) {
+  async execute(nm_department: string, costs_central_id: number) {
     try {
-      const user = await prismaClient.user.create({
+      const department = await prismaClient.department.create({
         data: {
-          nm_user,
-          of_user,
-          department_id
+          nm_department,
+          costs_central_id
         }
       })
-      return user
+      return department
     } catch (error) {
       console.log(error)
     }

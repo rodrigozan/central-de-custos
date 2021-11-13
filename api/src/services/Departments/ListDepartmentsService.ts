@@ -14,12 +14,12 @@ class ListDepartmentsService {
 class ListDepartmentByCc {
   async execute(cc_id: number) {
     try {
-      const users = await prismaClient.department.findMany({
+      const departments = await prismaClient.department.findMany({
         where: {
           costs_central_id: cc_id
         }
       })
-      return users
+      return departments
     } catch (error) {
       console.log(error)
     }
