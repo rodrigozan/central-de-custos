@@ -5,12 +5,16 @@ import { CreateUserController } from './controllers/Users/CreateUserController'
 import { UpdateUserController } from './controllers/Users/UpdateUserController'
 import { DeleteUserController } from './controllers/Users/DeleteUserController'
 
+import { CreateOfficesController } from './controllers/Offices/CreateOfficesController'
+
 import { ListDepartmentsController, ListDepartmentsByDptController } from './controllers/Departments/ListDepartmentsController'
 import { CreateDepartmentController } from './controllers/Departments/CreateDepartmentController'
 import { UpdateDepartmentController } from './controllers/Departments/UpdateDepartmentController'
 import { DeleteDepartmentController } from './controllers/Departments/DeleteDepartmentController'
 
-import { CreateOfficesController } from './controllers/Offices/CreateOfficesController'
+import { CreateCostsCentralController } from './controllers/CostsCentral/CreateCostsCentralController'
+import { UpdateCostsCentralController } from './controllers/CostsCentral/UpdateCostsCentralController'
+import { DeleteCostsCentralController } from './controllers/CostsCentral/DeleteCostsCentralController'
 
 const router = Router()
 
@@ -54,11 +58,11 @@ router.delete('/departments/:id', new DeleteDepartmentController().handle)
 /* Endpoints to costs-central */
 
 // Create cost
-router.post('/costs-central', new CreateDepartmentController().handle)
+router.post('/costs-central', new CreateCostsCentralController().handle)
 // Update cost
-router.put('/costs-central/:id', new UpdateDepartmentController().handle)
+router.put('/costs-central/:id', new UpdateCostsCentralController().handle)
 // Delete cost
-router.delete('/costs-central/:id', new DeleteDepartmentController().handle)
+router.delete('/costs-central/:id', new DeleteCostsCentralController().handle)
 
 /* */
 
