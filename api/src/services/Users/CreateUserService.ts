@@ -1,22 +1,16 @@
 import prismaClient from "../../prisma";
 
 class CreateUserService {
-  async execute() {
+  async execute(nm_user: string, of_user: string, department_id: number) {
     try {
-      const users = await prismaClient.user.create({
+      const user = await prismaClient.user.create({
         data: {
-          nm_user: 'Rodrigo Zandonadi',
-          of_user: 'Desenvolvedor Full Stack',
-          dp_user: {
-            create: {
-              nm_department: 'Desenvolvimento',
-              department_id: 2
-            }
-          },
-          role: 'ADMIN'
+          nm_user,
+          of_user,
+          department_id
         }
       })
-      console.log('usuário criado com sucesso')
+      return user
     } catch (error) {
       console.log(error)
     }

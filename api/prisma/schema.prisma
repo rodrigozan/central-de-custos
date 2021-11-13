@@ -1,3 +1,10 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -5,38 +12,40 @@ datasource db {
 
 model User {
   id_user       Int            @id @default(autoincrement())
-  nm_user       String         @db.VarChar(255)
-  of_user       String         @db.VarChar(255)
-  dp_user       Department[]   @relation(fields: [department_id], references: [id_department])
+  nm_user String @db.VarChar(256)
+  of_user String @db.VarChar(256)
+
+  dp_user       Department   @relation(fields: [department_id], references: [id_department])
   department_id Int
-  role          Role           @default(USER)
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-  CostsCentral  CostsCentral[]
+
+  CostsCentral CostsCentral[]
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @db.Timestamptz(6)
 }
 
 model Department {
   id_department Int            @id @default(autoincrement())
-  nm_department String         @db.VarChar(255)
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-  User          User[]
-  CostsCentral  CostsCentral[]
+  nm_department String @db.VarChar(256)
+  
+  User User[]
+  CostsCentral CostsCentral[]
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @db.Timestamptz(6)
 }
 
 model CostsCentral {
-  id_costs_central Int          @id @default(autoincrement())
-  nm_costs_central String       @db.VarChar(255)
-  dc_costs_central String       @db.VarChar(255)
-  dp_claimant      User[]       @relation(fields: [user_id], references: [id_user])
-  user_id          Int
-  dp_costs_central Department[] @relation(fields: [department_id], references: [id_department])
-  department_id    Int
-  createdAt        DateTime     @default(now())
-  updatedAt        DateTime     @updatedAt
-}
+  id_costs_central Int            @id @default(autoincrement())
+  nm_costs_central String @db.VarChar(256)
+  de_costs_central String @db.VarChar(256)
+  pr_costs_central Int
 
-enum Role {
-  USER
-  ADMIN
+  us_costs_central      User       @relation(fields: [user_id], references: [id_user])
+  user_id          Int
+  dp_costs_central Department @relation(fields: [department_id], references: [id_department])
+  department_id    Int
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @db.Timestamptz(6)
 }

@@ -1,9 +1,13 @@
 import { Router } from 'express';
 
+import { ListUsersController } from './controllers/Users/ListUsersController'
+import { CreateUserController } from './controllers/Users/CreateUserController'
+
 const router = Router()
 
 // Endpoints to users
-router.get('/users', (req, res, next) => res.send("Entrou na rota de usuários"))
+router.get('/users', new ListUsersController().handle)
+router.post('/users', new CreateUserController().handle)
 
 // Endpoints to offices
 router.get('/offices', (req, res, next) => res.send("Entrou na rota de cargos"))
