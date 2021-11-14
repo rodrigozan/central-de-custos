@@ -2,6 +2,8 @@
 CREATE TABLE "User" (
     "id_user" SERIAL NOT NULL,
     "nm_user" VARCHAR(256) NOT NULL,
+    "em_user" VARCHAR(256) NOT NULL,
+    "ps_user" VARCHAR(256) NOT NULL,
     "office_id" INTEGER NOT NULL,
     "department_id" INTEGER NOT NULL,
     "createdAt" TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
