@@ -26,11 +26,25 @@ export default function Admin() {
         <HeaderStats />
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Switch>
-            <Route path="/admin/produtos" exact component={Products} />
+            <Route path="/admin/centrais" exact component={Products} />
+            <Route path="/admin/add-central" exact component={ProductDetails} />
+            <Route path="/admin/update-central/:id" exact component={ProductDetails} />
+            <Route path="/admin/delete-central/:id" exact component={Products} />
+
+            <Route path="/admin/departamentos" exact component={Products} />
+            <Route path="/admin/add-departamento" exact component={Products} />
+            <Route path="/admin/update-departamento/:id" exact component={Products} />
+            <Route path="/admin/delete-departamento/:id" exact component={Products} />
+
+            <Route path="/admin/cargos" exact component={Products} />
+            <Route path="/admin/add-cargo" exact component={Products} />
+
+            <Route path="/admin/usuarios" exact component={Users} />
+            <Route path="/admin/add-usuario" exact component={Users} />
+            <Route path="/admin/update-usuario/:id" exact component={Users} />
+            <Route path="/admin/delete-usuario/:id" exact component={Users} />
+
             <Route path="/admin/produto/:id" exact component={ProductDetails} />
-            <Route path="/admin/cadastrar-produto/" exact component={ProductCreate} />
-            <Route path="/admin/insights" exact component={Insights} />
-            <Route path="/admin/minha-conta" exact component={Users} />
             <Redirect from="/admin" to="/admin/produtos" />
           </Switch>
           <FooterAdmin />

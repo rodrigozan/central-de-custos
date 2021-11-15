@@ -13,7 +13,7 @@ export default function FooterAdmin() {
                 <span
                   className="text-red-700 hover:text-blueGray-300 text-sm font-semibold py-1"
                 >
-                  Time 9
+                  Rodrigo Zandonadi
                 </span>
               </div>
             </div>

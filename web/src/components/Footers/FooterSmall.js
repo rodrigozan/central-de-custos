@@ -19,7 +19,7 @@ export default function FooterSmall(props) {
                 <span
                   className="text-white hover:text-blueGray-300 text-sm font-semibold py-1"
                 >
-                  Time 9
+                  Rodrigo Zandonadi
                 </span>
               </div>
             </div>

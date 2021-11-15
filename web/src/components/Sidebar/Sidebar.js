@@ -23,7 +23,7 @@ export default function Sidebar() {
             <i className="fas fa-bars"></i>
           </button>
           <UserDropdown />
-          <p className="text-center text-nome-restaurante"><small>Nome do Restaurante</small></p>
+          <p className="text-center text-nome-restaurante"><small>Central de Custos</small></p>
           {/* Collapse */}
           <div
             className={
@@ -63,7 +63,7 @@ export default function Sidebar() {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="text-red-700 md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Produtos
+              Adm Centrais
             </h6>
             {/* Navigation */}
 
@@ -73,21 +73,21 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/produtos") !== -1
+                    (window.location.href.indexOf("/admin/centrais") !== -1
                       ? "text-red-500 hover:text-red-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/produtos"
+                  to="/admin/centrais"
                 >
                   <i
                     className={
                       "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/produtos") !== -1
+                      (window.location.href.indexOf("/admin/centrais") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Lista de Produtos
+                  Centrais
                 </Link>
               </li>
 
@@ -95,23 +95,46 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/insights") !== -1
+                    (window.location.href.indexOf("/admin/departamentos") !== -1
                       ? "text-red-500 hover:text-red-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/admin/insights"
+                  to="/admin/departamentos"
                 >
                   <i
                     className={
                       "fas fa-lightbulb mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/insights") !== -1
+                      (window.location.href.indexOf("/admin/departamentos") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Insights
+                  Departamentos
                 </Link>
               </li>
+
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/admin/cargos") !== -1
+                      ? "text-red-500 hover:text-red-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/admin/cargos"
+                >
+                  <i
+                    className={
+                      "fas fa-lightbulb mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/cargos") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Cargos
+                </Link>
+              </li>
+
             </ul>
 
             {/* Divider */}
@@ -127,7 +150,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/admin/minha-conta"
+                  to="/admin/usuarios"
                 >
                   <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i>{" "}
                   Perfil
