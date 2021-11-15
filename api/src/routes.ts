@@ -16,6 +16,8 @@ import { CreateCostsCentralController } from './controllers/CostsCentral/CreateC
 import { UpdateCostsCentralController } from './controllers/CostsCentral/UpdateCostsCentralController'
 import { DeleteCostsCentralController } from './controllers/CostsCentral/DeleteCostsCentralController'
 
+import { AuthenticateController } from './controllers/Auth/AuthenticateController'
+
 const router = Router()
 
 /* Endpoints to users */
@@ -63,6 +65,13 @@ router.post('/costs-central', new CreateCostsCentralController().handle)
 router.put('/costs-central/:id', new UpdateCostsCentralController().handle)
 // Delete cost
 router.delete('/costs-central/:id', new DeleteCostsCentralController().handle)
+
+/* */
+
+/* Endpoints to authenticate */
+
+// Login
+router.post('/authenticate', new AuthenticateController().handle)
 
 /* */
 
