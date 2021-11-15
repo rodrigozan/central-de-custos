@@ -31,10 +31,10 @@ model Office {
 model Department {
   id_department    Int          @id @default(autoincrement())
   nm_department    String       @db.VarChar(256)
+  cc_department    CostsCentral @relation(fields: [costs_central_id], references: [id_costs_central])
   costs_central_id Int
   createdAt        DateTime     @default(now()) @db.Timestamptz(6)
   updatedAt        DateTime     @default(now()) @db.Timestamptz(6)
-  cc_department    CostsCentral @relation(fields: [costs_central_id], references: [id_costs_central])
   User             User[]
 }
 

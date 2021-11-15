@@ -9,7 +9,7 @@ class CreateUserController {
 
     try {
       const result = await service.execute(nm_user, em_user, ps_user, office_id, department_id)
-      return res.json(result)
+      return res.status(200).json(result)
     } catch (error) {
       return res.json({ error: error.message })
     }
