@@ -10,7 +10,7 @@ datasource db {
 model User {
   id_user       Int        @id @default(autoincrement())
   nm_user       String     @db.VarChar(256)
-  em_user       String     @db.VarChar(256)
+  em_user       String     @unique @db.VarChar(256)
   ps_user       String     @db.VarChar(256)
   office_id     Int
   department_id Int

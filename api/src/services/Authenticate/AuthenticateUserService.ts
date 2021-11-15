@@ -1,16 +1,6 @@
 import bcrypt from 'bcrypt'
 import prismaClient from "../../prisma";
 
-interface iUser {
-  id: string;
-  email: string;
-  password: string;
-}
-
-interface iAccessTokenResponse {
-  access_token: string;
-}
-
 class AuthenticateUserService {
   async execute(email: string, password: string) {
     const user = await prismaClient.user.findUnique({
@@ -20,8 +10,8 @@ class AuthenticateUserService {
     })
 
     try {
-      if (user) {
-        const auth = await bcrypt.compare(password, user.ps_user)
+      const auth = await bcrypt.compare(password, user.ps_user)
+      if (auth === true) {
         return { user, auth }
       }
     } catch (error) { }
