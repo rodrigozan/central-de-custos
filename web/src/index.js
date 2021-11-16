@@ -1,28 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-// Components
-
-import useToken from './components/Token/Token'
-
-// styles
-
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "assets/styles/tailwind.css";
-
-// layouts
-
-import Admin from "layouts/Admin.js";
-import Auth from "layouts/Auth.js";
+import App from './App';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/auth/login" component={Auth} />
-      <Route path="/admin" component={Admin} />
-      <Redirect from="/" to="/auth/login" />
-    </Switch>
-  </BrowserRouter>,
-  document.getElementById("root")
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
 );
