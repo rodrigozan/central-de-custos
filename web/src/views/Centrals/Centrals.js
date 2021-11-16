@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import Input from '../components/Inputs/Input'
-import Input from '../components/Buttons/Button'
+import Button from '../components/Buttons/Button'
 
 function addCentral() {
   const [create, setCreate] = useState(true)
@@ -33,11 +33,15 @@ function addCentral() {
 }
 
 function updateCentral() {
-  return ()
+  return (
+    <p>Update</p>
+  )
 }
 
 function deleteCentral() {
-  return ()
+  return (
+    <p>Delete</p>
+  )
 }
 
 export default { addCentral, updateCentral, deleteCentral }
